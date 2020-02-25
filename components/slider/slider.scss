@@ -1,0 +1,100 @@
+.app {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.slider {
+    position: relative;
+    &__inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    &__item {
+        display: none;
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-right: -100%;
+        transition: -webkit-transform .6s ease-in-out;
+        transition: transform .6s ease-in-out;
+        transition: transform .6s ease-in-out,-webkit-transform .6s;
+        &.active {
+            display: block;
+        }
+    }
+    &__control {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        &--prev, &--next {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            height: 100%;
+            width: 15%;     
+            background-color: rgba($color: #FFFFFF, $alpha: .35);  
+            transition: -webkit-background-color .6s ease-in-out;
+            transition: background-color .6s ease-in-out;
+            transition: background-color .6s ease-in-out,-webkit-background-color .6s;
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: .125);
+            }
+            &-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background-repeat: no-repeat;
+                background-size: auto 100%;
+            }
+        }
+        &--prev {
+            left: 0;
+            &-icon {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='13px' height='20px'%3E%3Cpath fill-rule='evenodd' fill='rgba(0, 0, 0, .5)' d='M12.357,16.189 L9.353,19.192 L0.343,10.182 L0.525,10.000 L0.343,9.818 L9.353,0.808 L12.357,3.811 L6.168,10.000 L12.357,16.189 Z'/%3E%3C/svg%3E");
+                // /**
+                // * - https://css-tricks.com/using-svg/
+                // * 1. https://icons8.com/icon/41194/chevron-left
+                // * 2. Edit on phosthop, create shape, copy svg code
+                // * 3. https://yoksel.github.io/url-encoder/
+                // */
+            }
+        } 
+        &--next {
+            right: 0;
+            &-icon {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='13px' height='20px'%3E%3Cpath fill-rule='evenodd' fill='rgba(0, 0, 0, .5)' d='M12.657,10.182 L3.647,19.192 L0.643,16.189 L6.832,10.000 L0.643,3.811 L3.647,0.808 L12.657,9.818 L12.475,10.000 L12.657,10.182 Z'/%3E%3C/svg%3E");
+            }
+        }
+    }
+}
+
+.responsive {
+    @at-root img#{&} {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
