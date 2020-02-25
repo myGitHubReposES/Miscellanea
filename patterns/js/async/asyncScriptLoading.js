@@ -2,6 +2,7 @@
  * Asynchronous Script Loading
  * 
  * Related info:
+ * - https://unixpapa.com/js/dyna.html
  * - https://flaviocopes.com/javascript-async-defer/
  * - https://love2dev.com/blog/web-performance-optimization-asynchronous-script-loading/
  */
